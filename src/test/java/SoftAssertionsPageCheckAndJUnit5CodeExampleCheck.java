@@ -1,4 +1,5 @@
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.selector.ByTagAndText;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.Condition.*;
@@ -13,7 +14,7 @@ public class SoftAssertionsPageCheckAndJUnit5CodeExampleCheck {
     @Test
 void softAssertionsPageCheck() {
     open("/wiki");
-    $(".markdown-body").$$("a").findBy(text("Soft assertions")).shouldHave(exist);
+    $(".markdown-body").$(new ByTagAndText("a", "Soft assertions")).shouldBe(exist);
     }
     @Test
 void jUnit5CodeExampleCheck() {
